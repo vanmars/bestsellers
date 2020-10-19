@@ -19,8 +19,7 @@ before_action :authorize, only: [:index, :show]
 
   def index
     @user = User.find(session[:user_id])
-    bestsellers = Booklist.new
-    @bestseller_list = bestsellers.get_bestsellers
+    @bestsellers = Booklist.get_bestsellers['results']['books']
   end
 
   def show

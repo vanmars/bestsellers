@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     if @user 
       flash[:alert] = "You\'ve signed in!"
       session[:user_id] = @user.id
-      redirect_to '/'
+      redirect_to '/users'
     else
       flash[:alert] = "There was a problem with sign in. Try again."
       redirect_to '/signin'
