@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+before_action :authorize, only: [:index, :show]
 
   def new 
     @user = User.new
@@ -14,6 +15,16 @@ class UsersController < ApplicationController
       flash[:alert] = "Invalid credentials,try again"
       redirect_to '/signup'
     end
+  end
+
+  def index
+    @user = User.find(session[:user_id])
+    bestsellers = Booklist.new
+    @bestseller_list = bestsellers.get_bestsellers
+  end
+
+  def show
+    @message = "Protected content reached."
   end
 
   private 

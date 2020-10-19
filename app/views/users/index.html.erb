@@ -1,0 +1,10 @@
+<h1>Welcome, <%= @user.email %></h1>
+
+<%= link_to 'Profile', "/users/#{@user.id}" %>
+
+<% @bestseller_list.each do |book| %>
+  <p><%= book['title'] %></p>
+  <p><%= book['author'] %></p>
+<% end %>
+
+<%# Loop Through @bestseller_list, and print the title, author to the page %>
